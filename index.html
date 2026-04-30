@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charu Kanniga M P – Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --white: #ffffff;
+    --bg: #f5f7fa;
+    --bg-alt: #eef1f7;
+    --surface: #ffffff;
+    --blue-light: #dbeafe;
+    --blue-mid: #bfdbfe;
+    --blue: #3b82f6;
+    --blue-dark: #1d4ed8;
+    --blue-soft: #eff6ff;
+    --text: #1e293b;
+    --text-mid: #475569;
+    --text-light: #94a3b8;
+    --border: #e2e8f0;
+    --shadow: 0 2px 16px rgba(59,130,246,0.07);
+    --shadow-hover: 0 8px 32px rgba(59,130,246,0.15);
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .nav-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--blue-dark);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-mid);
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--blue-dark); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 80px 5vw 60px;
+    background: linear-gradient(160deg, #eff6ff 0%, #f5f7fa 50%, #e0f2fe 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #bfdbfe55, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #dbeafe44, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--blue-light);
+    color: var(--blue-dark);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    color: var(--text);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 span { color: var(--blue-dark); }
+
+  .hero-role {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--blue);
+    margin-bottom: 18px;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+    color: var(--text-mid);
+    max-width: 520px;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .hero-cta {
+    margin-top: 36px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s;
+    display: inline-block;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary {
+    background: var(--blue-dark);
+    color: white;
+    box-shadow: 0 4px 14px rgba(29,78,216,0.3);
+  }
+
+  .btn-primary:hover {
+    background: var(--blue);
+    box-shadow: 0 6px 20px rgba(59,130,246,0.4);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    border: 1.5px solid var(--blue-dark);
+    color: var(--blue-dark);
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    background: var(--blue-soft);
+    transform: translateY(-2px);
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 80px 5vw;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-alt {
+    background: var(--bg-alt);
+    max-width: 100%;
+    padding: 80px 0;
+  }
+
+  .section-alt > .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 5vw;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    color: var(--text);
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+  }
+
+  /* ABOUT */
+  .about-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 44px 48px;
+    border-left: 4px solid var(--blue);
+  }
+
+  .about-card p {
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    line-height: 1.9;
+    font-weight: 300;
+  }
+
+  .about-card p + p { margin-top: 16px; }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 14px;
+  }
+
+  .skill-chip {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 18px 14px;
+    text-align: center;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-mid);
+    box-shadow: var(--shadow);
+    transition: all 0.25s;
+    letter-spacing: 0.02em;
+  }
+
+  .skill-chip:hover {
+    border-color: var(--blue);
+    color: var(--blue-dark);
+    background: var(--blue-soft);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 22px;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 30px 28px;
+    border-top: 3px solid var(--blue-light);
+    transition: all 0.28s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-top-color: var(--blue);
+  }
+
+  .project-card.main { border-top-color: var(--blue); }
+
+  .project-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 50px;
+    background: var(--blue-light);
+    color: var(--blue-dark);
+    align-self: flex-start;
+  }
+
+  .project-tag.extra {
+    background: var(--bg-alt);
+    color: var(--text-mid);
+  }
+
+  .project-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .project-card p {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* EXPERIENCE */
+  .exp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 22px;
+  }
+
+  .exp-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 32px 30px;
+    border-left: 4px solid var(--blue-mid);
+    transition: all 0.25s;
+  }
+
+  .exp-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-left-color: var(--blue);
+  }
+
+  .exp-company {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .exp-role {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--blue);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .exp-card p {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* EDUCATION */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 22px;
+  }
+
+  .edu-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 32px 30px;
+    transition: all 0.25s;
+  }
+
+  .edu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .edu-inst {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .edu-degree {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-mid);
+    margin-bottom: 10px;
+  }
+
+  .edu-badge {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 4px 12px;
+    border-radius: 50px;
+    background: var(--blue-soft);
+    color: var(--blue-dark);
+  }
+
+  /* ACHIEVEMENTS */
+  .ach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 18px;
+  }
+
+  .ach-card {
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow);
+    padding: 24px 22px;
+    border-bottom: 3px solid var(--blue-light);
+    transition: all 0.25s;
+  }
+
+  .ach-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-bottom-color: var(--blue);
+  }
+
+  .ach-card h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .ach-card p {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* PROFILES */
+  .profiles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .profile-card {
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow);
+    padding: 26px 22px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1.5px solid var(--border);
+    transition: all 0.25s;
+  }
+
+  .profile-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--blue);
+    background: var(--blue-soft);
+  }
+
+  .profile-platform {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .profile-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--blue-dark);
+  }
+
+  .profile-link {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    word-break: break-all;
+    font-weight: 300;
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 18px;
+  }
+
+  .contact-card {
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow);
+    padding: 28px 24px;
+    transition: all 0.25s;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .contact-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+
+  .contact-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0 5vw;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--text);
+    color: var(--text-light);
+    text-align: center;
+    padding: 30px 5vw;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    font-weight: 300;
+  }
+
+  footer span { color: var(--blue-mid); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    nav { padding: 0 4vw; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 0.78rem; }
+    .about-card { padding: 28px 22px; }
+    section { padding: 60px 4vw; }
+    .section-alt { padding: 60px 0; }
+    .section-alt > .inner { padding: 0 4vw; }
+  }
+
+  @media (max-width: 480px) {
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#hero">CK</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#profiles">Profiles</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="hero" class="hero">
+  <div class="hero-badge">Open to Opportunities</div>
+  <h1>Charu <span>Kanniga</span> M P</h1>
+  <p class="hero-role">Computer Science Engineering Student &nbsp;·&nbsp; Aspiring Backend Developer</p>
+  <p class="hero-tagline">Building intelligent, real-world applications at the intersection of AI, backend systems, and human-centred design — one problem at a time.</p>
+  <div class="hero-cta">
+    <a href="#projects" class="btn btn-primary">View My Work</a>
+    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">Who I Am</p>
+  <h2 class="section-title">About Me</h2>
+  <div class="about-card">
+    <p>
+      I'm a final-year Computer Science Engineering student with a deep passion for backend development, artificial intelligence, and solving problems that actually matter. Whether it's designing scalable REST APIs, experimenting with NLP pipelines, or training computer vision models, I love the craft of turning ideas into working software.
+    </p>
+    <p>
+      My journey spans full-stack development, machine learning internships, and a growing collection of projects that tackle real challenges — from accessible communication tools to intelligent traffic systems. I believe great software is built through curiosity, persistence, and an obsession with learning. I'm constantly exploring new technologies, earning certifications, and pushing the boundaries of what I can create — because the best engineers never stop being students.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<div class="section-alt" id="skills">
+  <div class="inner">
+    <p class="section-label">What I Work With</p>
+    <h2 class="section-title">Skills & Technologies</h2>
+    <div class="skills-grid">
+      <div class="skill-chip">C</div>
+      <div class="skill-chip">C++</div>
+      <div class="skill-chip">Java</div>
+      <div class="skill-chip">HTML</div>
+      <div class="skill-chip">CSS</div>
+      <div class="skill-chip">JavaScript</div>
+      <div class="skill-chip">MongoDB</div>
+      <div class="skill-chip">SQL</div>
+      <div class="skill-chip">NLP</div>
+      <div class="skill-chip">YOLOv8</div>
+      <div class="skill-chip">Docker</div>
+      <div class="skill-chip">Git</div>
+      <div class="skill-chip">Jenkins</div>
+      <div class="skill-chip">Spring Boot</div>
+      <div class="skill-chip">MERN Stack</div>
+      <div class="skill-chip">Python</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label">What I've Built</p>
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card main">
+      <span class="project-tag">Main Project</span>
+      <h3>Bus Pass Booking System</h3>
+      <p>A full-stack MERN application enabling seamless digital bus pass management. Features user authentication, pass generation, renewal workflows, and admin dashboards — eliminating paper-based inefficiencies.</p>
+    </div>
+
+    <div class="project-card main">
+      <span class="project-tag">Mini Project</span>
+      <h3>Driving Monitoring System</h3>
+      <p>A real-time computer vision system that monitors driver behaviour and alertness, detecting signs of fatigue or distraction using image processing techniques to improve road safety.</p>
+    </div>
+
+    <div class="project-card main">
+      <span class="project-tag">AI · NLP</span>
+      <h3>Natural Language to Code Compiler</h3>
+      <p>An NLP-powered tool that translates human-readable natural language descriptions into functional code snippets — bridging the gap between intent and implementation for non-technical users.</p>
+    </div>
+
+    <div class="project-card main">
+      <span class="project-tag">Computer Vision</span>
+      <h3>Traffic Management System using YOLOv8</h3>
+      <p>An intelligent traffic control system leveraging YOLOv8 object detection to dynamically manage signal timings based on real-time vehicle density, reducing urban congestion effectively.</p>
+    </div>
+
+    <div class="project-card main">
+      <span class="project-tag">ML · Recommendation</span>
+      <h3>Company Recommendation System</h3>
+      <p>A smart placement recommendation engine that evaluates student profiles, academic performance, and skill sets to suggest best-fit companies — streamlining campus recruitment matching.</p>
+    </div>
+
+    <div class="project-card main">
+      <span class="project-tag">Accessibility · AI</span>
+      <h3>Real-Time Speech to Sign Language</h3>
+      <p>An accessibility-first solution that converts live phone call audio into Indian Sign Language animations in real time, enabling meaningful communication for the hearing impaired.</p>
+    </div>
+
+    <div class="project-card">
+      <span class="project-tag extra">OOP · Java</span>
+      <h3>Hospital Management System</h3>
+      <p>A structured Java-based system modelling hospital operations including patient registration, appointment scheduling, billing, and medical records using core OOP principles.</p>
+    </div>
+
+    <div class="project-card">
+      <span class="project-tag extra">Spring Boot</span>
+      <h3>Learning Management System</h3>
+      <p>A robust backend LMS built with Spring Boot, enabling course creation, student enrolment, assignment tracking, and progress monitoring with RESTful API design.</p>
+    </div>
+
+    <div class="project-card">
+      <span class="project-tag extra">MERN Stack</span>
+      <h3>Quick Commerce Application</h3>
+      <p>A fast-delivery e-commerce platform built on the MERN stack, featuring product catalogues, real-time cart management, order processing, and delivery tracking.</p>
+    </div>
+
+    <div class="project-card">
+      <span class="project-tag extra">NLP</span>
+      <h3>Text to Voice Converter</h3>
+      <p>An NLP-powered application that converts written text into natural-sounding speech, supporting multiple languages and offering customisable voice parameters for diverse accessibility needs.</p>
+    </div>
+
+    <div class="project-card">
+      <span class="project-tag extra">AI · EdTech</span>
+      <h3>AI-Powered Study Guide Generator</h3>
+      <p>An intelligent study companion that generates structured, topic-specific study guides from raw content using AI, helping students learn more efficiently and retain information better.</p>
+    </div>
+
+    <div class="project-card">
+      <span class="project-tag extra">Simulation</span>
+      <h3>Deloitte Job Simulation</h3>
+      <p>Completed Deloitte's virtual job simulation programme, gaining hands-on practical experience with enterprise technology consulting workflows, data analysis, and professional problem-solving approaches.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<div class="section-alt" id="experience">
+  <div class="inner">
+    <p class="section-label">Where I've Worked</p>
+    <h2 class="section-title">Experience</h2>
+    <div class="exp-grid">
+
+      <div class="exp-card">
+        <div class="exp-company">CodeSoft</div>
+        <div class="exp-role">Machine Learning Intern</div>
+        <p>Developed and evaluated machine learning models using Python and scikit-learn. Worked on data preprocessing pipelines, feature engineering, and model optimisation tasks across classification and regression problem sets.</p>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-company">Prodigy InfoTech</div>
+        <div class="exp-role">Web Development Intern</div>
+        <p>Built and styled responsive, accessible web interfaces using HTML, CSS, and JavaScript. Collaborated on UI components and ensured cross-browser compatibility and mobile-first design standards throughout the internship.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="section-label">Academic Background</p>
+  <h2 class="section-title">Education</h2>
+  <div class="edu-grid">
+
+    <div class="edu-card">
+      <div class="edu-inst">National Engineering College</div>
+      <div class="edu-degree">B.E. Computer Science Engineering</div>
+      <span class="edu-badge">Expected 2027</span>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-inst">Our Own Modern Matric Higher Secondary School</div>
+      <div class="edu-degree">Higher Secondary Certificate (HSC)</div>
+      <span class="edu-badge">80%</span>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ACHIEVEMENTS -->
+<div class="section-alt" id="achievements">
+  <div class="inner">
+    <p class="section-label">Recognition & Learning</p>
+    <h2 class="section-title">Achievements & Certifications</h2>
+    <div class="ach-grid">
+
+      <div class="ach-card">
+        <h4>NPTEL – Machine Learning</h4>
+        <p>Completed NPTEL certification course on Machine Learning with strong assessment scores.</p>
+      </div>
+
+      <div class="ach-card">
+        <h4>NPTEL – Cloud Computing</h4>
+        <p>Certified in Cloud Computing concepts, architectures, and cloud service delivery models via NPTEL.</p>
+      </div>
+
+      <div class="ach-card">
+        <h4>NPTEL – Python Programming</h4>
+        <p>Earned NPTEL certification in Python, covering data structures, algorithms, and application development.</p>
+      </div>
+
+      <div class="ach-card">
+        <h4>NPTEL – Internet of Things</h4>
+        <p>Completed IoT certification covering sensor networks, embedded systems, and connected device design.</p>
+      </div>
+
+      <div class="ach-card">
+        <h4>Discipline Star</h4>
+        <p>Recognised as Discipline Star — an institutional honour awarded for exemplary conduct and academic integrity.</p>
+      </div>
+
+      <div class="ach-card">
+        <h4>2000+ Problems – SkillRack</h4>
+        <p>Solved over 2000 programming problems on SkillRack, demonstrating strong problem-solving consistency and algorithmic thinking.</p>
+      </div>
+
+      <div class="ach-card">
+        <h4>First Prize – Biztambola</h4>
+        <p>Won First Prize in Biztambola, a competitive business and technical quiz event, showcasing analytical and domain knowledge.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PROFILES -->
+<section id="profiles">
+  <p class="section-label">Find Me Online</p>
+  <h2 class="section-title">Coding Profiles</h2>
+  <div class="profiles-grid">
+
+    <a class="profile-card" href="https://github.com/CharuKanniga" target="_blank" rel="noopener">
+      <span class="profile-platform">GitHub</span>
+      <span class="profile-name">CharuKanniga</span>
+      <span class="profile-link">github.com/CharuKanniga</span>
+    </a>
+
+    <a class="profile-card" href="https://leetcode.com/u/Charu0906/" target="_blank" rel="noopener">
+      <span class="profile-platform">LeetCode</span>
+      <span class="profile-name">Charu0906</span>
+      <span class="profile-link">leetcode.com/u/Charu0906</span>
+    </a>
+
+    <a class="profile-card" href="http://www.skillrack.com/profile/440344/c7bc568ed4e77151876949825215b6193b88e6e2" target="_blank" rel="noopener">
+      <span class="profile-platform">SkillRack</span>
+      <span class="profile-name">2000+ Problems Solved</span>
+      <span class="profile-link">skillrack.com/profile/440344</span>
+    </a>
+
+    <a class="profile-card" href="https://www.linkedin.com/in/charu-kanniga/" target="_blank" rel="noopener">
+      <span class="profile-platform">LinkedIn</span>
+      <span class="profile-name">Charu Kanniga</span>
+      <span class="profile-link">linkedin.com/in/charu-kanniga</span>
+    </a>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<div class="section-alt" id="contact">
+  <div class="inner">
+    <p class="section-label">Let's Connect</p>
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">Available on request</div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-label">Email</div>
+        <div class="contact-value">charukanniga@gmail.com</div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Tamil Nadu, India</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Crafted with care by <span>Charu Kanniga M P</span> &nbsp;·&nbsp; &copy; 2025. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
