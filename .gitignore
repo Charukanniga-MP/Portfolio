@@ -1,0 +1,8 @@
+# IDE & System files
+.kilocode/
+.vscode/
+.idea/
+*.tmp
+.DS_Store
+Thumbs.db
+desktop.ini
