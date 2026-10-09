@@ -2358,7 +2358,7 @@
                             <div class="stat-label">Certifications</div>
                         </div>
                         <div class="hero-stat-card">
-                            <div class="stat-value">3+</div>
+                            <div class="stat-value">4+</div>
                             <div class="stat-label">Flagship AI Apps</div>
                         </div>
                     </div>
@@ -2587,7 +2587,8 @@
                     </div>
                     <div class="skill-tags-wrapper">
                         <span class="skill-item-pill"><i class="fas fa-sparkles"></i> LLMs</span>
-                        <span class="skill-item-pill"><i class="fas fa-network-wired"></i> RAG</span>
+                        <span class="skill-item-pill"><i class="fas fa-network-wired"></i> RAG & CAG</span>
+                        <span class="skill-item-pill"><i class="fas fa-bolt"></i> Gemini API / GenAI</span>
                         <span class="skill-item-pill"><i class="fas fa-robot"></i> Chatbase</span>
                         <span class="skill-item-pill"><i class="fas fa-camera"></i> Computer Vision</span>
                         <span class="skill-item-pill"><i class="fas fa-crosshairs"></i> YOLO</span>
@@ -2596,7 +2597,6 @@
                         <span class="skill-item-pill"><i class="fas fa-table"></i> Pandas</span>
                         <span class="skill-item-pill"><i class="fas fa-square-root-alt"></i> NumPy</span>
                         <span class="skill-item-pill"><i class="fas fa-chart-pie"></i> Matplotlib</span>
-                        <span class="skill-item-pill"><i class="fas fa-bolt"></i> Gemini API</span>
                     </div>
                 </div>
 
@@ -2822,7 +2822,92 @@
                     </div>
                 </div>
 
-                <!-- PROJECT 2: AI-POWERED COMPANY RECOMMENDATION SYSTEM -->
+                <!-- PROJECT 2: APEXSIM | AI SALES ROLEPLAY SIMULATOR -->
+                <div class="project-featured-card interactive-el">
+                    <div class="project-details">
+                        <div class="project-tag-banner" style="background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.35); color: #fbbf24;">
+                            <i class="fas fa-bolt"></i> Conversational AI & Cache-Augmented Generation (CAG)
+                        </div>
+                        <h3 class="project-title">ApexSim &mdash; AI Sales Roleplay Simulator</h3>
+                        <div class="project-subtitle">Interactive Sales-Training Engine & Context-Cached Objection Handling</div>
+                        
+                        <p class="project-description">
+                            Built an interactive AI sales-training simulator using Python and Streamlit, featuring a skeptical customer persona, document-grounded objection handling, multi-turn conversation memory, automated sales scenario testing, and optional Gemini cached-context integration.
+                        </p>
+
+                        <ul class="project-bullets">
+                            <li>Pioneered <strong>Cache-Augmented Generation (CAG)</strong> using Google GenAI's native Context Caching with <strong>Gemini 1.5 Flash</strong>, pre-computing a 38,000+ token sales manual into persistent server-side KV cache states.</li>
+                            <li>Engineered the <em>Arthur Pendelton</em> persona &mdash; a skeptical business owner executing real-time objection handling and contract clause cross-referencing with zero chunking loss.</li>
+                            <li>Architected resilient multi-turn conversation memory with <strong>st.session_state</strong> and automated sales scenario testing for benchmarked objection responses.</li>
+                            <li>Engineered an intuitive, responsive <strong>Streamlit</strong> application with custom CSS styling, sub-500ms cached attention lookups, and up to 75&ndash;80% token cost reduction.</li>
+                        </ul>
+
+                        <div class="project-tech-chips">
+                            <span class="tech-chip">Python</span>
+                            <span class="tech-chip">Streamlit</span>
+                            <span class="tech-chip">Google Gemini API</span>
+                            <span class="tech-chip">google-genai</span>
+                            <span class="tech-chip">CAG</span>
+                            <span class="tech-chip">Custom CSS</span>
+                            <span class="tech-chip">Rich</span>
+                            <span class="tech-chip">python-dotenv</span>
+                        </div>
+
+                        <div class="project-actions-row">
+                            <a href="https://apexsim-a-cache-augmented-generation-cag-sales-roleplay-simula.streamlit.app/" target="_blank" class="btn btn-primary interactive-el">
+                                <i class="fas fa-external-link-alt"></i> Live App Demo
+                            </a>
+                            <a href="https://github.com/Charukanniga-MP/ApexSim-A-Cache-Augmented-Generation-CAG-Sales-Roleplay-Simulator" target="_blank" class="btn btn-secondary interactive-el">
+                                <i class="fab fa-github"></i> GitHub Repository
+                            </a>
+                            <span class="tech-pill" style="border-color: #10b981; color: #34d399;">
+                                <i class="fas fa-circle" style="font-size: 0.5rem; color: #10b981;"></i> Deployed on Streamlit
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Right Visual Mockup -->
+                    <div class="project-visual-preview">
+                        <div class="mockup-window-header">
+                            <div class="window-dots">
+                                <div class="window-dot dot-red"></div>
+                                <div class="window-dot dot-yellow"></div>
+                                <div class="window-dot dot-green"></div>
+                            </div>
+                            <div class="window-title">apexsim-cag.streamlit.app</div>
+                        </div>
+
+                        <div class="mockup-body">
+                            <div class="metric-pill-grid">
+                                <div class="mockup-metric">
+                                    <div class="metric-label">Cached Context</div>
+                                    <div class="metric-val" style="color: #38bdf8;">38,000+ Tok</div>
+                                </div>
+                                <div class="mockup-metric">
+                                    <div class="metric-label">Token Cost Savings</div>
+                                    <div class="metric-val" style="color: #10b981;">~75-80%</div>
+                                </div>
+                            </div>
+
+                            <div class="code-snippet-box">
+                                <span class="code-keyword">import</span> google.genai <span class="code-keyword">as</span> genai<br>
+                                cache = client.caches.<span class="code-function">create</span>(<br>
+                                &nbsp;&nbsp;model=<span class="code-string">"gemini-1.5-flash"</span>,<br>
+                                &nbsp;&nbsp;contents=sales_manual,<br>
+                                &nbsp;&nbsp;config={<span class="code-string">"ttl"</span>: <span class="code-string">"3600s"</span>}<br>
+                                )<br>
+                                <span class="code-keyword">return</span> client.models.<span class="code-function">generate</span>(prompt, cached_content=cache.name)
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono); flex-wrap: wrap;">
+                            <span><i class="fas fa-bolt" style="color: #f59e0b;"></i> Cache-Augmented Generation</span>
+                            <span style="color: #34d399;"><i class="fas fa-check-circle"></i> Sub-500ms KV Lookup</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 3: AI-POWERED COMPANY RECOMMENDATION SYSTEM -->
                 <div class="project-featured-card interactive-el">
                     <div class="project-details">
                         <div class="project-tag-banner">
@@ -2900,7 +2985,7 @@
                     </div>
                 </div>
 
-                <!-- PROJECT 3: REAL-TIME SPEECH TO SIGN LANGUAGE TRANSLATION -->
+                <!-- PROJECT 4: REAL-TIME SPEECH TO SIGN LANGUAGE TRANSLATION -->
                 <div class="project-featured-card interactive-el">
                     <div class="project-details">
                         <div class="project-tag-banner">
